@@ -33,15 +33,6 @@ const vector<unsigned>& getGoals();
 const vector<unsigned>& getKgPerWeekGoals();
 const vector<unsigned>& getAccountTypes();
 
-const vector<tm>& getDatesForDailyCalorieReport();
-const vector<double>& getRecommendedDailyCalories();
-const vector<double>& getProtein();
-const vector<double>& getFatt();
-const vector<double>& getCarbohydrates();
-const vector<double>& getBurnedCaloriesPerDay();
-const vector<double>& getConsumedCaloriesPerDay();
-const vector<int>& getIndexesForDailyCalorieReport();
-
 string getUserByIndex(unsigned index);
 unsigned getAccountTypeLoggedUser();
 unsigned getGenderLoggedUser();
@@ -51,15 +42,3 @@ unsigned getAgeLoggedUser();
 unsigned getActivityLevelLoggedUser();
 unsigned getGoalLoggedUser();
 unsigned getKgPerWeekGoalLoggedUser();
-
-void addRecommendedDailyCalories(double dailyCalories);
-void addMacronutrients(double protein, double fat, double carbohydrates);
-void addProtein(double protein);
-void addFat(double fat);
-void addCarbohydrates(double carbohydrates);
-
-bool compareDates(const tm& date1, const tm& date2);
-int searchDate(const vector<tm>& dates, const tm& searchDate);
-tm getCurrentDate();
-int searchCurrentDate(const vector<tm>& dates);
-

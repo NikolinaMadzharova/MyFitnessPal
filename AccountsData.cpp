@@ -12,15 +12,6 @@ vector<unsigned> goals;
 vector<unsigned> kgPerWeekGoals;
 vector<unsigned> accountTypes;
 
-vector<tm> datesForDailyCalorieReport;
-vector<double> recommendedDailyCalories;
-vector<double> proteinGR;
-vector<double> fatGR;
-vector<double> carbohydratesGR;
-vector<double> burnedCaloriesPerDay;
-vector<double> consumedCaloriesPerDay;
-vector<int> indexesForDailyCalorieReport;
-
 void setLoggedUser(string username) {
 	loggedUser = getUserIndex(username);
 }
@@ -158,38 +149,6 @@ const vector<unsigned>& getAccountTypes() {
 	return accountTypes;
 }
 
-const vector<tm>& getDatesForDailyCalorieReport() {
-	return datesForDailyCalorieReport;
-}
-
-const vector<double>& getRecommendedDailyCalories() {
-	return recommendedDailyCalories;
-}
-
-const vector<double>& getProtein() {
-	return proteinGR;
-}
-
-const vector<double>& getFatt() {
-	return fatGR;
-}
-
-const vector<double>& getCarbohydrates() {
-	return carbohydratesGR;
-}
-
-const vector<double>& getBurnedCaloriesPerDay() {
-	return burnedCaloriesPerDay;
-}
-
-const vector<double>& getConsumedCaloriesPerDay() {
-	return consumedCaloriesPerDay;
-}
-
-const vector<int>& getIndexesForDailyCalorieReport() {
-	return indexesForDailyCalorieReport;
-}
-
 string getUserByIndex(unsigned index) {
 	return usernames[index];
 }
@@ -224,38 +183,4 @@ unsigned getGoalLoggedUser() {
 
 unsigned getKgPerWeekGoalLoggedUser() {
 	return kgPerWeekGoals[loggedUser];
-}
-
-void addRecommendedDailyCalories(double dailyCalories) {
-	recommendedDailyCalories.push_back(dailyCalories);
-}
-
-void addMacronutrients(double protein, double fat, double carbohydrates) {
-	addProtein(protein);
-	addFat(fat);
-	addCarbohydrates(carbohydrates);
-}
-
-void addProtein(double protein) {
-	proteinGR.push_back(protein);
-}
-
-void addFat(double fat) {
-	fatGR.push_back(fat);
-}
-
-void addCarbohydrates(double carbohydrates) {
-	carbohydratesGR.push_back(carbohydrates);
-}
-
-void addBurnedCaloriesPerDay(double burnedCalories) {
-	burnedCaloriesPerDay.push_back(burnedCalories);
-}
-
-void addConsumedCaloriesPerDay(double consumedCalories) {
-	consumedCaloriesPerDay.push_back(consumedCalories);
-}
-
-void addIndexesForDailyCalorieReport(int index) {
-	indexesForDailyCalorieReport.push_back(index);
 }
