@@ -24,20 +24,6 @@ unsigned getUsersCount() {
 	return usernames.size();
 }
 
-void addUser(const string& username,const string& password, unsigned age, unsigned gender,
-	unsigned height, double weight, unsigned activityLevel, unsigned goal,unsigned kgPerWeekGoal, unsigned accountType) {
-	addUsername(username);
-	addPassword(password);
-	addAge(age);
-	addGender(gender);
-	addHeight(height);
-	addWeight(weight);
-	addActivityLevel(activityLevel);
-	addGoal(goal);
-	addKgPerWeekGoal(kgPerWeekGoal);
-	addAccountType(accountType);
-}
-
 void addUsername(const string& username) {
 	usernames.push_back(username);
 }
@@ -183,4 +169,24 @@ unsigned getGoalLoggedUser() {
 
 unsigned getKgPerWeekGoalLoggedUser() {
 	return kgPerWeekGoals[loggedUser];
+}
+
+void editHeight(unsigned newHeight) {
+	heights[loggedUser] = newHeight;
+}
+
+void editWeight(double newWeight) {
+	weights[loggedUser] = newWeight;
+}
+
+void editActivityLevel(unsigned newActivityLevel) {
+	activityLevels[loggedUser] = newActivityLevel;
+}
+
+void editGoal(unsigned newGoal) {
+	goals[loggedUser] = newGoal;
+}
+
+void editKgPerWeekGoal(unsigned newKgPerWeekGoal) {
+	kgPerWeekGoals[loggedUser] = newKgPerWeekGoal;
 }

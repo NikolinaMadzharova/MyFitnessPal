@@ -7,8 +7,6 @@ using namespace std;
 void setLoggedUser(string username);
 int getLoggedUserIndex();
 unsigned getUsersCount();
-void addUser(const string& username, const string& password, unsigned age, unsigned gender,
-	unsigned height, double weight, unsigned activityLevel, unsigned goal, unsigned kgPerWeekGoal, unsigned accountType);
 void addUsername(const string& username);
 void addPassword(const string& password);
 void addAge(unsigned age);
@@ -42,3 +40,8 @@ unsigned getAgeLoggedUser();
 unsigned getActivityLevelLoggedUser();
 unsigned getGoalLoggedUser();
 unsigned getKgPerWeekGoalLoggedUser();
+void editHeight(unsigned newHeight);
+void editWeight(double newWeight);
+void editActivityLevel(unsigned newActivityLevel);
+void editGoal(unsigned newGoal);
+void editKgPerWeekGoal(unsigned newKgPerWeekGoal);
