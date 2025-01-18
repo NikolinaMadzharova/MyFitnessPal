@@ -64,43 +64,41 @@ double recommendedDailyCalories() {
 		double calorieSurplus = calorieDeficitAndSurplus();
 		dailyCalories += calorieSurplus;
 	}
-	addRecommendedDailyCalories(dailyCalories);
+	
 	return dailyCalories;
 }
 
-void macronutrients() {
+void macronutrientsForLossWeight(double& protein, double& fat, double& carbohydrates) {
+	double dailyCalorie = recommendedDailyCalories();
+	 protein = 0.35 * dailyCalorie / 4;
+	 fat = 0.3 * dailyCalorie / 9;
+	 carbohydrates = 0.35 * dailyCalorie / 4;
+	
+}
+
+void macronutrientsForGainWeight(double& protein, double& fat, double& carbohydrates) {
+	double dailyCalorie = recommendedDailyCalories();
+	 protein = 0.4 * dailyCalorie / 4;
+	  fat = 0.25 * dailyCalorie / 9;
+	 carbohydrates = 0.35 * dailyCalorie / 4;
+}
+
+void macronutrientsForMaintainWeight(double& protein, double& fat, double& carbohydrates) {
+	double dailyCalorie = recommendedDailyCalories();
+	 protein = 0.25 * dailyCalorie / 4;
+	 fat = 0.30 * dailyCalorie / 9;
+	 carbohydrates = 0.45 * dailyCalorie / 4;
+}
+
+void macronutrients(double& protein, double& fat, double& carbohydrates) {
 	unsigned goal = getGoalLoggedUser();
 	if (goal == 1) {
-		macronutrientsForLossWeight();
+		macronutrientsForLossWeight(protein, fat, carbohydrates);
 	}
 	else if (goal == 2) {
-		macronutrientsForMaintainWeight();
+		macronutrientsForMaintainWeight(protein, fat, carbohydrates);
 	}
 	else if (goal == 3) {
-		macronutrientsForGainWeight();
+		macronutrientsForGainWeight(protein, fat, carbohydrates);
 	}
-}
-
-void macronutrientsForLossWeight() {
-	double dailyCalorie = recommendedDailyCalories();
-	double protein = 0.35 * dailyCalorie / 4;
-	double fat = 0.3 * dailyCalorie / 9;
-	double carbohydrates = 0.35 * dailyCalorie / 4;
-	addMacronutrients(protein, fat, carbohydrates);
-}
-
-void macronutrientsForGainWeight() {
-	double dailyCalorie = recommendedDailyCalories();
-	double protein = 0.4 * dailyCalorie / 4;
-	double  fat = 0.25 * dailyCalorie / 9;
-	double carbohydrates = 0.35 * dailyCalorie / 4;
-	addMacronutrients(protein, fat, carbohydrates);
-}
-
-void macronutrientsForMaintainWeight(){
-	double dailyCalorie = recommendedDailyCalories();
-	double protein = 0.25 * dailyCalorie / 4;
-	double  fat = 0.30 * dailyCalorie / 9;
-	double carbohydrates = 0.45 * dailyCalorie / 4;
-	addMacronutrients(protein, fat, carbohydrates);
 }
