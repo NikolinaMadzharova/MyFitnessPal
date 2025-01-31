@@ -1,3 +1,16 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <daily report information>
+*
+*/
 #include "DailyReport.h"
 
 vector<tm> datesForDailyCalorieReport;
@@ -116,8 +129,7 @@ void getDailyReport(tm date,double& recommendedKcal, double& protein,double& fat
 void editBurnedCaloriesAfterAddingWorkout(double newBurnedCalories) {
 	tm date = getCurrentDate();
 	int dailyReportIndex = findSingleMatchingPosition(datesForDailyCalorieReport, usersForDailyCalorieReport, date);
-	burnedCaloriesPerDay[dailyReportIndex] += newBurnedCalories;
-
+	burnedCaloriesPerDay[dailyReportIndex] += newBurnedCalories;	
 }
 
 void editConsumedCaloriesAterAddingMeal(double newConsumedCalories) {
