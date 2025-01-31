@@ -1,3 +1,17 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <user information file>
+*
+*/
+
 #include "AccountsData.h"
 int loggedUser = -1;
 
@@ -64,7 +78,7 @@ void addAccountType(unsigned accountType) {
 	accountTypes.push_back(accountType);
 }
 
-bool checkIfUserExist(string username) {
+bool checkIfUserExist(const string& username) {
 	for (int i = 0; i < usernames.size(); i++) {
 		if (usernames[i] == username) {
 			return true;
@@ -73,7 +87,7 @@ bool checkIfUserExist(string username) {
 	return false;
 }
 
-bool checkIfThePasswordIsCorrect(string username, string password) {
+bool checkIfThePasswordIsCorrect(const string& username,const string& password) {
 	for (int i = 0; i < usernames.size(); i++) {
 		if (usernames[i] == username) {
 			if (passwords[i] == password) {
@@ -86,7 +100,7 @@ bool checkIfThePasswordIsCorrect(string username, string password) {
 	return false;
 }
 
-int getUserIndex(string username) {
+int getUserIndex(const string& username) {
 	for (int i = 0; i < usernames.size(); i++) {
 		if (usernames[i] == username) {
 			return i;
