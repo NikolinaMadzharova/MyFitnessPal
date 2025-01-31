@@ -1,3 +1,17 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <time functions>
+*
+*/
+
 #include "TimeHandler.h"
 int loggedUserInd;
 constexpr size_t SIZE_DATE_STRING = 11; //DD.MM.YYYY
