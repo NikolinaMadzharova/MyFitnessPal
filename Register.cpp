@@ -1,5 +1,23 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <register function>
+*
+*/
 #include "Register.h"
 #include "DailyReport.h"
+constexpr unsigned MIN_HEIGHT = 70;
+constexpr unsigned MAX_HEIGHT = 300;
+constexpr double MIN_WEIGHT = 20.0;
+constexpr double MAX_WEIGHT = 400.0;
+constexpr unsigned MAX_AGE = 150;
 
 void registration() {
 	enterUsername();
@@ -166,7 +184,7 @@ void enterGoal() {
 
 void enterAccountType() {
 	cout << "Select your account type" << endl << "1. Standard" << endl << "2. Premium (premium accounts get access to macronutrient calculation)" << endl;
-	cout << "Select your account type (enter a number 1/2)";
+	cout << "Select your account type (enter a number 1/2): ";
 	unsigned accountType;
 	cin >> accountType;
 	cout << endl;
@@ -179,7 +197,7 @@ void enterAccountType() {
 	}
 }
 
-bool isUsernameValid(string username) {
+bool isUsernameValid(const string& username) {
 	if (checkIfUserExist(username)) {
 		return false;
 	}
@@ -187,7 +205,7 @@ bool isUsernameValid(string username) {
 }
 
 bool isAgeValid(unsigned age) {
-	return age <= 200;
+	return age <= MAX_AGE;
 }
 
 bool isGenderValid(unsigned gender) {
@@ -195,11 +213,11 @@ bool isGenderValid(unsigned gender) {
 }
 
 bool isHeightValid(unsigned height) {
-	return(height >= 50 && height < 300);
+	return(height >= MIN_HEIGHT && height < MAX_HEIGHT);
 }
 
 bool isWeightValid(double weight) {
-	return(weight >= 15 && weight <= 300);
+	return(weight >= MIN_WEIGHT && weight <= MAX_WEIGHT);
 }
 
 bool isActivityLevelValid(unsigned activityLevel) {
