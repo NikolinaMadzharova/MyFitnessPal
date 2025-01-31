@@ -1,3 +1,17 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <file management functions>
+*
+*/
+
 #include "AccountsData.h"
 #include <fstream>
 #include <ctime>
@@ -60,92 +74,11 @@ void saveToFile() {
 		throw "Error with opening the file.";
 	}
 	
-	//ACCOUNT DATA
-	saveUnsignedToFile(ofs, getUsersCount());
-	vector<string> usernames = getUsernames();
-	vector<string> passwords = getPasswords();
-	vector <unsigned> ages = getAges();
-	vector<unsigned> heights = getHeights();
-	vector<double> weights = getWeights();
-	vector<unsigned> genders = getGenders();
-	vector<unsigned> activityLevels = getActivityLevels();
-	vector<unsigned> goals = getGoals();
-	vector<unsigned> kgPerWeekGoals = getKgPerWeekGoals();
-	vector<unsigned> accountTypes = getAccountTypes();
-
-	unsigned countUsers = getUsersCount();
-	for (int i = 0; i < countUsers; i++) {
-		saveStringToFile(ofs, usernames[i]);
-		saveStringToFile(ofs, passwords[i]);
-		saveUnsignedToFile(ofs, ages[i]);
-		saveUnsignedToFile(ofs, heights[i]);
-		saveDoubleToFile(ofs, weights[i]);
-		saveUnsignedToFile(ofs, genders[i]);
-		saveUnsignedToFile(ofs, activityLevels[i]);
-		saveUnsignedToFile(ofs, goals[i]);
-		saveUnsignedToFile(ofs, kgPerWeekGoals[i]);
-		saveUnsignedToFile(ofs, accountTypes[i]);
-	}
-
-	//WORKOUTS
-	saveUnsignedToFile(ofs, getWorkoutsCount());
-	vector<string> workoutNames = getWorkoutNames();
-	vector<double> workoutCalories = getWorkoutCalories();
-	vector<tm> workoutDates = getWorkoutDates();
-	vector<int> workoutUser = getWorkoutUsers();
-
-	unsigned countWorkouts = getWorkoutsCount();
-	for (int i = 0; i < countWorkouts; i++) {
-		saveStringToFile(ofs, workoutNames[i]);
-		saveDoubleToFile(ofs, workoutCalories[i]);
-		saveTmToFile(ofs, workoutDates[i]);
-		saveIntToFile(ofs, workoutUser[i]);
-	}
-
-	//MEALS
-	saveUnsignedToFile(ofs, getMealsCount());
-	vector<tm> mealDates = getMealDates();
-	vector<string> mealNames = getMealNames();
-	vector<double> mealCalories = getMealCalories();
-	vector<int> mealUsers = getMealUsers();
-
-	unsigned countMeals = getMealsCount();
-	for (int i = 0; i < countMeals; i++) {
-		saveTmToFile(ofs, mealDates[i]);
-		saveStringToFile(ofs, mealNames[i]);
-		saveDoubleToFile(ofs, mealCalories[i]);
-		saveIntToFile(ofs, mealUsers[i]);
-	}
-
-	//DAILY REPORT
-	saveUnsignedToFile(ofs, getDailyReportsCount());
-	vector<tm> datesForDailyReport = getDatesForDailyCalorieReport();
-	vector<double> recommendedDailyCalories = getRecommendedDailyKcal();
-	vector<double> proteinGR = getProtein();
-	vector<double> fattGR = getFatt();
-	vector<double> carbohydratesGR = getCarbohydrates();
-	vector<double> burnedCaloriesPerDay = getBurnedCaloriesPerDay();
-	vector<double> consumedCaloriesPerDay = getConsumedCaloriesPerDay();
-	vector<int> usersForDailyCalorieReport = getUsersForDailyCalorieReport();
-
-	unsigned dailyReportCount = getDailyReportsCount();
-	for (int i = 0; i < dailyReportCount; i++) {
-		saveTmToFile(ofs, datesForDailyReport[i]);
-		saveDoubleToFile(ofs, recommendedDailyCalories[i]);
-		saveDoubleToFile(ofs, proteinGR[i]);
-		saveDoubleToFile(ofs, fattGR[i]);
-		saveDoubleToFile(ofs, carbohydratesGR[i]);
-		saveDoubleToFile(ofs, burnedCaloriesPerDay[i]);
-		saveDoubleToFile(ofs, consumedCaloriesPerDay[i]);
-		saveIntToFile(ofs, usersForDailyCalorieReport[i]);
-	}
-	
-	/*
 	saveAccountData(ofs);
 	saveWorkouts(ofs);
 	saveMeals(ofs);
 	saveDailyReport(ofs);
-	*/
+	
 	ofs.close();
 }
 
