@@ -1,3 +1,17 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <meals information>
+*
+*/
+
 #include "Meals.h"
 
 vector<tm> mealDates;
@@ -29,7 +43,7 @@ void addMealDate(tm mealDate) {
 	mealDates.push_back(mealDate);
 }
 
-void addMealName(string mealName) {
+void addMealName(const string& mealName) {
 	mealNames.push_back(mealName);
 }
 
@@ -41,7 +55,7 @@ void addMealUser(int mealUser) {
 	mealUsers.push_back(mealUser);
 }
 
-void addMeal(string mealName,double mealCalories) {
+void addMeal(const string& mealName,double mealCalories) {
 	tm date = getCurrentDate();
 	int userInd = getLoggedUserIndex();
 	addMealDate(date);

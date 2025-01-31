@@ -1,3 +1,17 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <meals information>
+*
+*/
+
 #pragma once
 #include "AccountsData.h"
 #include "TimeHandler.h"
@@ -11,11 +25,11 @@ const vector<double>& getMealCalories();
 const vector<int>& getMealUsers();
 
 void addMealDate(tm mealDate);
-void addMealName(string mealName);
+void addMealName(const string& mealName);
 void addMealCalories(double mealCal);
 void addMealUser(int mealUser);
 
-void addMeal(string mealName, double mealCalories);
+void addMeal(const string& mealName, double mealCalories);
 bool areMealCaloriesValid(double calories);
 double kcalFromTodaysMeal();
 void printMeals(tm date);
