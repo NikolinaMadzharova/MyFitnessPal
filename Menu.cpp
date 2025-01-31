@@ -1,3 +1,17 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <menu function>
+*
+*/
+
 #include "Menu.h"
 
 void printHeader() {
@@ -29,12 +43,16 @@ void printLoginOrRegisterMenu() {
     cout << endl;
     switch (option)
     {
+
     case 1:inputForLogin();
         if (getLoggedUserIndex() == -1){
-            return; 
+            printLoginOrRegisterMenu(); 
         }
-        addDailyReport();
-        printMainMenu(); break;
+        else {
+            printMainMenu();
+            addDailyReport();
+        }
+         break;
     case 2: registration();
         printLoginOrRegisterMenu(); break;
     case 3: break;
@@ -123,12 +141,33 @@ void addWorkoutMenu() {
 
 void addMealMenu() {
     cout << "---------------- ADD MEAL -----------------" << endl;
-    cout << "Enter the name of the meal: ";
+    cout << "1. Breakfast" << endl;
+    cout << "2. Lunch" << endl;
+    cout << "3. Dinner" << endl;
+    cout << "4. Other" << endl;
+    cout << "Select meal name(1-4): ";
+    int option;
+    cin >> option;
     string mealName;
-    cin >> mealName;
-    if (mealName.empty()) {
-        cout << "Invalid name. " << endl;
-        messageToReturnToMainMenu();
+    cout << endl;
+    if (option == 4) {
+        cout << "Enter the name of the meal: ";
+        string mealName;
+        cin >> mealName;
+        if (mealName.empty()) {
+            cout << "Invalid name. " << endl;
+            messageToReturnToMainMenu();
+        }
+    }
+    else {
+        switch (option)
+        {
+        case 1: mealName = "Breakfast"; break;
+        case 2: mealName = "Lunch"; break;
+        case 3: mealName = "Dinner"; break;
+        default: cout << "Invalid option. " << endl;
+            messageToReturnToMainMenu();
+        }
     }
     cout << endl;
     cout << "Enter the calories for the meal: ";
@@ -207,7 +246,7 @@ void specificDateReportMenu() {
         cout << "Total calories burned: " << burnedKcal << endl;
         cout << "Calorie balance (Consumed - Burned): " << consumedKcal - burnedKcal << endl;
         cout << "-------------------MEALS---------------------" << endl;
-        printWorkouts(date);
+        printMeals(date);
         cout << endl;
         cout << "------------------WORKOUTS-------------------" << endl;
         printWorkouts(date);
@@ -290,6 +329,9 @@ void editMealsForTheDayMenu() {
                 }
             }
             else if (option == 3) {
+                double oldCalories = caloriesConsumedFromMeal(mealName);
+                double difference = -oldCalories;
+                editConsumedCaloriesAfterEditingMeal(difference);
                 deleteMealForTheDay(mealName);
                 cout << "Successfully deleted meal! " << endl;
                 messageToReturnToMainMenu();
@@ -353,6 +395,9 @@ void editWorkoutsForTheDayMenu() {
                 }
             }
             else if (option == 3) {
+                double oldCalories = caloriesBurnedFromWorkout(workoutName);
+                double difference = -oldCalories;
+                editBurnedCaloriesAfterEditingWorkout(difference);
                 deleteWorkoutForTheDay(workoutName);
                 cout << "Successfully deleted workout! " << endl;
                 messageToReturnToMainMenu();
