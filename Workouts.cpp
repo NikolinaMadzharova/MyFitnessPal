@@ -1,3 +1,17 @@
+/**
+* Solution to course project # 9
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Nikolina Aleksandrova Madzharova
+* @idnumber 0MI0600464
+* @compiler VC
+*
+* <workouts information>
+*
+*/
+
 #include "Workouts.h"
 
 vector<string> workoutNames;
@@ -25,7 +39,7 @@ const vector<int>& getWorkoutUsers() {
 	return workoutUsers;
 }
 
-void addWorkoutName(string trainingName) {
+void addWorkoutName(const string& trainingName) {
 	workoutNames.push_back(trainingName);
 }
 
@@ -41,7 +55,7 @@ void addWorkoutDate(tm date) {
 	workoutDates.push_back(date);
 }
 
-void addWorkout(string workoutName, double burnedCalories) {
+void addWorkout(const string& workoutName, double burnedCalories) {
 	tm currentDate = getCurrentDate();
 	int userIndex = getLoggedUserIndex();
 	addWorkoutName(workoutName);
@@ -96,7 +110,7 @@ bool doesWorkoutExist() {
 	return true;
 }
 
-bool checkWorkoutName(string name) {
+bool checkWorkoutName(const string& name) {
 	tm date = getCurrentDate();
 	int countMatchingPositions = 0;
 	int* matchingPositions = findMatchingPositions(workoutDates, workoutUsers, date, countMatchingPositions);
@@ -114,7 +128,7 @@ bool checkWorkoutName(string name) {
 	return false;
 }
 
-void editWorkoutName(string oldName,string newName) {
+void editWorkoutName(const string& oldName,const string& newName) {
 	tm date = getCurrentDate();
 	int countMatchingPositions = 0;
 	int* matchingPositions = findMatchingPositions(workoutDates, workoutUsers, date, countMatchingPositions);
@@ -132,7 +146,7 @@ void editWorkoutName(string oldName,string newName) {
 	delete[] matchingPositions;
 }
 
-void editWorkoutKcal(string name, double newCalories) {
+void editWorkoutKcal(const string& name, double newCalories) {
 	tm date = getCurrentDate();
 	int countMatchingPositions = 0;
 	int* matchingPositions = findMatchingPositions(workoutDates, workoutUsers, date, countMatchingPositions);
