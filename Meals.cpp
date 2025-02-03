@@ -179,12 +179,14 @@ void deleteAllMealsForSpecificData(tm date) {
 	int countMatchingPositions = 0;
 	int* matchingPositions = findMatchingPositions(mealDates, mealUsers, date, countMatchingPositions);
 	if (matchingPositions != nullptr) {
-		for (int i = 0; i < countMatchingPositions; i++) {
+		for (int i = countMatchingPositions - 1; i >= 0; i--) {
 			int index = matchingPositions[i];
-			mealNames.erase(mealNames.begin() + index);
-			mealCalories.erase(mealCalories.begin() + index);
-			mealDates.erase(mealDates.begin() + index);
-			mealUsers.erase(mealUsers.begin() + index);
+			if (index >= 0 && index < mealNames.size()) {
+				mealNames.erase(mealNames.begin() + index);
+				mealCalories.erase(mealCalories.begin() + index);
+				mealDates.erase(mealDates.begin() + index);
+				mealUsers.erase(mealUsers.begin() + index);
+			}
 		}
 	}
 	delete[] matchingPositions;
@@ -198,10 +200,12 @@ void deleteMealForTheDay(const string& name) {
 		for (int i = 0; i < countMatchingPositions; i++) {
 			int index = matchingPositions[i];
 			if (mealNames[index] == name) {
-				mealNames.erase(mealNames.begin() + index);
-				mealCalories.erase(mealCalories.begin() + index);
-				mealDates.erase(mealDates.begin() + index);
-				mealUsers.erase(mealUsers.begin() + index);
+				if (index >= 0 && index < mealNames.size()) {
+					mealNames.erase(mealNames.begin() + index);
+					mealCalories.erase(mealCalories.begin() + index);
+					mealDates.erase(mealDates.begin() + index);
+					mealUsers.erase(mealUsers.begin() + index);
+				}
 			}
 		}
 	}
