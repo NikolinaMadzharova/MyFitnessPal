@@ -153,7 +153,8 @@ void editConsumedCaloriesAfterEditingMeal(double differnce) {
 void deleteDailyReport(tm date) {
 	int index = findSingleMatchingPosition(datesForDailyCalorieReport, usersForDailyCalorieReport, date);
 	if (index != -1) {
-		if (!datesForDailyCalorieReport.empty()) {
+		if (!datesForDailyCalorieReport.empty() && (index >= 0 && index < datesForDailyCalorieReport.size())) {
+			
 			datesForDailyCalorieReport.erase(datesForDailyCalorieReport.begin() + index);
 			recommendedDailyKcal.erase(recommendedDailyKcal.begin() + index);
 			proteinGR.erase(proteinGR.begin() + index);
