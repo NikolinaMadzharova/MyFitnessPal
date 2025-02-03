@@ -62,6 +62,7 @@ int* findMatchingPositions(const vector<tm>& dates, const vector<int> indexes, t
 
 //Only one matching position is possible
 int findSingleMatchingPosition(const vector<tm>& dates, const vector<int>& indexes, const tm& targetDate) {
+	
 	for (int i = 0; i < dates.size(); i++) {
 		if (indexes[i] == getLoggedUserIndex() && compareDates(dates[i], targetDate)) {
 			return i;
