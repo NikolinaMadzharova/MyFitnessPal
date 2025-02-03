@@ -49,8 +49,9 @@ void printLoginOrRegisterMenu() {
             printLoginOrRegisterMenu(); 
         }
         else {
-            printMainMenu();
             addDailyReport();
+            printMainMenu();
+           
         }
          break;
     case 2: registration();
