@@ -168,12 +168,15 @@ void deleteAllWorkoutsForSpecificDate(tm date) {
 	int countMatchingPositions = 0;
 	int* matchingPositions = findMatchingPositions(workoutDates, workoutUsers, date, countMatchingPositions);
 	if (matchingPositions != nullptr) {
-		for (int i = 0; i < countMatchingPositions; i++) {
+		for (int i = countMatchingPositions - 1; i >= 0; i--) {
 			int index = matchingPositions[i];
-			workoutNames.erase(workoutNames.begin() + index);
-			workoutCalories.erase(workoutCalories.begin() + index);
-			workoutDates.erase(workoutDates.begin() + index);
-			workoutUsers.erase(workoutUsers.begin() + index);
+
+			if (index >= 0 && index < workoutNames.size()) {
+				workoutNames.erase(workoutNames.begin() + index);
+				workoutCalories.erase(workoutCalories.begin() + index);
+				workoutDates.erase(workoutDates.begin() + index);
+				workoutUsers.erase(workoutUsers.begin() + index);
+			}
 		}
 	}
 
@@ -188,10 +191,12 @@ void deleteWorkoutForTheDay(const string& name) {
 		for (int i = 0; i < countMatchingPositions; i++) {
 			int index = matchingPositions[i];
 			if (workoutNames[index] == name) {
-				workoutNames.erase(workoutNames.begin() + index);
-				workoutCalories.erase(workoutCalories.begin() + index);
-				workoutDates.erase(workoutDates.begin() + index);
-				workoutUsers.erase(workoutUsers.begin() + index);
+				if (index >= 0 && index < workoutNames.size()) {
+					workoutNames.erase(workoutNames.begin() + index);
+					workoutCalories.erase(workoutCalories.begin() + index);
+					workoutDates.erase(workoutDates.begin() + index);
+					workoutUsers.erase(workoutUsers.begin() + index);
+				}
 			}
 		}
 	}
